@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# Modern React Frontend Architecture
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このプロジェクトは、高い開発体験（DX）と表現力（UI/UX）を両立するために、最新のモダンスタックで構築されています。
 
-Currently, two official plugins are available:
+## 🛠 技術スタック
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| カテゴリ | 採用技術 | 選定理由 |
+| :--- | :--- | :--- |
+| **Framework** | React + TypeScript | 堅牢な型安全性とコンポーネント指向 |
+| **Build Tool** | Vite | 爆速な開発サーバー起動（HMR） |
+| **Styling** | Tailwind CSS (v4) | クラス名によるユーティリティファーストなスタイリング |
+| **UI Component** | shadcn/ui | カスタマイズ性の高い、コピペベースのコンポーネント集 |
+| **Animation** | Framer Motion | 宣言的で滑らかなアニメーション実装 |
+| **Catalog** | Storybook | コンポーネントのカタログ化と独立した開発環境 |
+| **Design Pattern** | Atomic Design | 再利用性と保守性を高めるディレクトリ構成 |
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 開発の始め方
 
-## Expanding the ESLint configuration
+### 必須要件
+* **Node.js**: `.nvmrc` に記載のバージョン（v22.17.1 推奨）
+* **nvm**: Nodeバージョン管理ツール
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### セットアップ手順
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# 1. Nodeのバージョンを合わせる
+nvm use
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 2. 依存パッケージのインストール
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 3. 開発サーバーの起動 (localhost:5173)
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 4. Storybookの起動 (localhost:6006)
+npm run storybook
