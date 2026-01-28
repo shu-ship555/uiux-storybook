@@ -1,31 +1,62 @@
-import { Button } from "./components/atoms/Button";
-import { ButtonSample } from "@/components/shadcnui/button";
+import { ButtonSample } from "./components/atoms/Button";
+import { Button } from "@/components/ui/button";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
-      <h1 className="text-2xl font-bold text-gray-800">
-        Atomic Design Development
-      </h1>
+      <h1 className="text-2xl font-bold text-gray-800">Atomic Design Development</h1>
 
-      <div className="flex gap-4">
-        <Button label="Primary Button" variant="primary" onClick={() => alert('Primary!')} />
-        <Button label="Secondary Button" variant="secondary" onClick={() => alert('Secondary!')} />
-        <div className="flex gap-4">
-          <ButtonSample>
-            普通のボタン
-          </ButtonSample>
-          <ButtonSample variant="destructive">
-            削除ボタン
-          </ButtonSample>
+      <div>
+        <div className="flex gap-4 ">
+          <ButtonSample label="Primary Button" variant="primary" onClick={() => alert("Primary!")} />
+          <ButtonSample label="Secondary Button" variant="secondary" onClick={() => alert("Secondary!")} />
+        </div>
+        <div className="flex gap-4 mt-8">
+          <Button>普通のボタン</Button>
+          <Button variant="destructive">削除ボタン</Button>
 
-          <ButtonSample variant="outline">
-            枠線ボタン
-          </ButtonSample>
-
-          <ButtonSample variant="ghost">
-            幽霊ボタン
-          </ButtonSample>
+          <Button variant="outline">枠線ボタン</Button>
+        </div>
+        <div className="mt-8">
+          <Card className="w-full max-w-sm">
+            <CardHeader>
+              <CardTitle>Login to your account</CardTitle>
+              <CardDescription>Enter your email below to login to your account</CardDescription>
+              <CardAction>
+                <Button variant="link">Sign Up</Button>
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <form>
+                <div className="flex flex-col gap-6">
+                  <div className="grid gap-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="m@example.com" required />
+                  </div>
+                  <div className="grid gap-2">
+                    <div className="flex items-center">
+                      <Label htmlFor="password">Password</Label>
+                      <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
+                        Forgot your password?
+                      </a>
+                    </div>
+                    <Input id="password" type="password" required />
+                  </div>
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter className="flex-col gap-2">
+              <Button type="submit" className="w-full">
+                Login
+              </Button>
+              <Button variant="outline" className="w-full">
+                Login with Google
+              </Button>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
