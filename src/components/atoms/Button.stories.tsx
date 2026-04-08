@@ -72,11 +72,3 @@ export const Loading: Story = {
   },
 }
 
-export const CustomAnimation: Story = {
-  args: {
-    children: "Bouncy Animation",
-    whileHover: { scale: 1.1, rotate: 2 },
-    whileTap: { scale: 0.9, rotate: -2 },
-    transition: { type: "spring", stiffness: 500, damping: 10 },
-  },
-}
